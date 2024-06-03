@@ -26,18 +26,18 @@ Route::middleware(['auth:sanctum'])->group(function () {
        Route::post('/', [UserController::class, 'store']);
        Route::post('/{user}', [UserController::class, 'update']);
        Route::delete('/{id}', [UserController::class,'destroy']);
-       //Route::post('/auth/avatar', [AvatarController::class, 'store']);
+       Route::post('/auth/avatar', [AvatarController::class, 'store']);
     });
        
-    /*Route::prefix('menus')->group(function () {
+    Route::prefix('menus')->group(function () {
         Route::get('/', [MenuController::class, 'index']);
         Route::get('/children/{menuId}', [MenuController::class, 'children']);
         Route::post('/', [MenuController::class, 'store']);  
         Route::put('/{menu}', [MenuController::class, 'update']);
         Route::delete('/{id}', [MenuController::class,'destroy']);
-    });*/
+    });
    
-    /*Route::prefix('roles')->group(function () {
+    Route::prefix('roles')->group(function () {
         Route::get('/helperTables', fn() => response()->json([
             "roles" => \App\Models\Role::get()
         ], 200));
@@ -46,10 +46,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/', [RoleController::class, 'store']);        
         Route::put('/{role}', [RoleController::class, 'update']);
         Route::delete('/{id}', [RoleController::class,'destroy']);        
-    });*/
+    });
 });
 
-/*Route::prefix('error')->group(function () {
+Route::prefix('error')->group(function () {
     Route::get('/not-auth', function(){        
         abort(403, 'This action is not authorized.');        
     });
@@ -61,7 +61,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/', function(){        
         abort(500, 'Something went wrong');        
     });
-    Route::get('/custom', function(){
+    /*Route::get('/custom', function(){
         throw new \App\Exceptions\CustomException('Error: Levi Strauss & CO.', 501);
-    });
-});*/
+    });*/
+});
