@@ -18,10 +18,11 @@ class UserResource extends JsonResource
           'id' => $this->id,
           'name' => $this->name,
           'email' => $this->email,
-          'avatar' => $this->avatar,
+          'avatar' => url(env('APP_URL') . '/storage/' . $this->avatar),
           'isAdmin' => $this->isAdmin(),
           'role_id' => $this->role_id,
           'emailVerified' => $this->email_verified_at,
         ];
     }
 }
+
